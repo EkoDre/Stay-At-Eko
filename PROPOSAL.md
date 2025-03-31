@@ -1,9 +1,5 @@
 # Project Proposal: Stay at Eko
 
-## Problem Statement
-
-Finding and sharing short-term rental spaces can be tricky without a centralized platform. “Stay at Eko” solves this by offering a clean, simple way to list and browse affordable stays — inspired by Airbnb, but simplified.
-
 ## App Overview
 
 Stay at Eko is a web app where users can:
