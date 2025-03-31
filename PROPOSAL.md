@@ -16,12 +16,12 @@ The app will be built using the MEN stack and follow full CRUD functionality.
   - Read: See all listings
   - Update: Edit an existing listing
   - Delete: Remove a listing
+  - User authentication (signup/login)
 - Clean UI for adding/viewing listings
 - Responsive layout for desktop and mobile
 
 ## Stretch Goals
 
-- User authentication (signup/login)
 - Image upload
 - Booking system (select dates, show total price)
 - Filter by location or price
@@ -96,11 +96,15 @@ DELETE LISTING:
 
 
 
+## ERD 
+
+
+
 ## Wireframes
 
 Click the link below to view the wireframes for the app layout and main pages:
 
-[📄 View Stay at Eko Wireframes (PDF)](./assets/airbnb-wireframe.pdf)
+[📄 View Stay at Eko Wireframes (PDF)](https://github.com/EkoDre/Stay-At-Eko/blob/main/Assets/stayekoWireframe.png)
 
 
 ## Logo
