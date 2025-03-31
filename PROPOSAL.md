@@ -102,9 +102,8 @@ DELETE LISTING:
 
 ## Wireframes
 
-Click the link below to view the wireframes for the app layout and main pages:
 
-[View Stay at Eko Wireframes](https://github.com/EkoDre/Stay-At-Eko/blob/main/Assets/stayekoWireframe.png)
+![Stay at Eko Wireframes](https://github.com/EkoDre/Stay-At-Eko/blob/main/Assets/stayekoWireframe.png)
 
 
 ## Logo
