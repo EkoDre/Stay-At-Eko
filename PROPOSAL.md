@@ -52,6 +52,5 @@ Click the link below to view the wireframes for the app layout and main pages:
 
 ## Logo
 
-![Logo](./assets/StayatEkopreview.png)
-
+![Stay at Eko Preview](https://github.com/EkoDre/Stay-At-Eko/blob/main/Assets/StayatEkopreview.png)
 
