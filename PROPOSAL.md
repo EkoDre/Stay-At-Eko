@@ -98,6 +98,7 @@ DELETE LISTING:
 
 ## ERD 
 
+! [ERD Diagram](https://github.com/EkoDre/Stay-At-Eko/blob/main/Assets/ERD%20diagram%20.png) 
 
 
 ## Wireframes
