@@ -50,4 +50,7 @@ Click the link below to view the wireframes for the app layout and main pages:
 [📄 View Stay at Eko Wireframes (PDF)](./assets/airbnb-wireframe.pdf)
 
 
+## Logo
+
+![Stay at Eko Logo](./assets/StayatEkopreview.png)
 
