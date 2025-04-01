@@ -170,3 +170,19 @@ Booking {
 
 ![Stay at Eko Preview](https://github.com/EkoDre/Stay-At-Eko/blob/main/Assets/StayatEkopreview.png)
 
+
+
+## Timeline
+
+| Day        |   | Task                               | Blockers | Notes/ Thoughts |
+|------------|---|------------------------------------|----------|-----------------|
+| Monday      |   | proposal and approval             |          |      approval!  |
+| Tuesday     |   | planning and setup                |          |connect database |
+| Wednesday   |   | crud routes                       |          | dont overthink  |
+| Thursday    |   |      auth                         |          |getting somewhere|
+| Friday      |   | booking system                    |          |   cool details  |
+| Saturday    |   | Finaliz MVP / css touches         | friends  |  feel better    |
+| Sunday      |   | read over and test                | friends  |  you did it     |
+| Monday      |   | Presentation                      |          |  be great       |
+
+
