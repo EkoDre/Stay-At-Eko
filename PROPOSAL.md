@@ -37,7 +37,7 @@ The app will be built using the MEN stack and follow full CRUD functionality.
 
 ## Planning
 
-- Trello Board: [insert your Trello link here]
+- Trello Board: [Trello link here]
 - ERD and wireframes are included on Trello
 
 ## Pseudo-code
@@ -65,6 +65,42 @@ SETUP routes for:
 - req.session.userId is used to track the logged-in user
 - Middleware protects private routes:
  
+
+ Booking post route details:
+
+- Converting date strings to Date objects.  - checkInDate (string, e.g., "YYYY-MM-DD") checkOutDate (string, e.g., "YYYY-MM-DD")
+
+
+- Validating the date formats.
+
+dateIn  = new Date(checkInDate)
+dateOut = new Date(checkOutDate)
+
+
+- Ensuring the check-out date is after the check-in date.
+
+if (dateIn is invalid OR dateOut is invalid) then
+    Return error: "Invalid date format"
+else if (dateOut <= dateIn) then
+    Return error: "Check-out date must be after check-in date"
+
+
+
+
+
+
+- Creating the booking if validations pass.
+
+ If all validations pass
+Create new booking with:
+   userId (from session)
+  listingId
+   checkInDate: dateIn
+  checkOutDate: dateOut
+
+Return success (confirmation) message with booking details
+
+
 
 
 HOME PAGE:
