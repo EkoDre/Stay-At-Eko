@@ -19,13 +19,14 @@ The app will be built using the MEN stack and follow full CRUD functionality.
   - User authentication (signup/login)
 - Clean UI for adding/viewing listings
 - Responsive layout for desktop and mobile
+- Booking system (select dates, show total price)
 
 ## Stretch Goals
-
+- accept payments
 - Image upload
-- Booking system (select dates, show total price)
 - Filter by location or price
 - Save (favorite) listings
+- algorithm for users 
 
 ## Technologies
 
@@ -58,6 +59,14 @@ SETUP routes for:
   - PUT /listings/:id     → update a listing
   - DELETE /listings/:id  → delete a listing
 
+ Authentication Details
+- Session-based authentication using express-session
+- Passwords are hashed using bcrypt
+- req.session.userId is used to track the logged-in user
+- Middleware protects private routes:
+ 
+
+
 HOME PAGE:
   When user visits the homepage
     Fetch all listings from the database
@@ -89,11 +98,25 @@ DELETE LISTING:
   Else
     Show default image
 
-(OPTIONAL) USER AUTH:
+ USER AUTH:
   Let users sign up and log in
   Save session
   Allow users to only edit/delete their own listings
 
+
+Booking Schema:
+
+Booking {
+  
+  userId:      ObjectId,    // Required: Reference to the User who booked
+  
+  listingId:   ObjectId,    // Required: Reference to the Listing being booked
+  
+  checkInDate: Date,        // Required: Check-in date
+  
+  checkOutDate: Date        // Required: Check-out date
+  
+}
 
 
 ## ERD 

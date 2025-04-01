@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Listing</title>
+</head>
+<body>
+    <h1>Edit Stay-at-Eko Listing</h1>
+
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+      <label>City:</label>
+      <input type="text" name="city" value="<%= listing.city %>" required />
+
+      <label>Price per Night ($):</label>
+      <input type="number" name="price" value="<%= listing.price %>" required />
+
+      <label>Description:</label><br />
+      <textarea name="description" rows="4" cols="50" required><%= listing.description %></textarea>
+
+      <br />
+      <button type="submit">Update Listing</button>
+    </form>
+
+    <a href="/listings">← Back to Listings</a>
+</body>
+</html>

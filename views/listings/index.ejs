@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+</head>
+<body>
+  <% if (user) { %>
+    <h1>Homes near you, <%= user.username %>!</h1>
+    <p>
+      <a href="/auth/sign-out">Sign out</a>
+    </p>
+  <% } else { %>
+    <h1>Welcome to the app, guest.</h1>
+  
+  <% } %>
+  <a href="/listings/new">Add New Listing</a>
+
+  <ul>
+    <% listings.forEach(listing => { %>
+      <li>
+        <a href="/listing/<%= listing._id %>">
+          <%= listing.city %> <%= listing.price %> (<%= listing.description %>)
+        </a>
+        
+        <a href="/listing/<%= listing._id %>/edit">Edit</a>
+        <form action="/listing/<%= listing._id %>?_method=DELETE" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+
+</body>
+</html>

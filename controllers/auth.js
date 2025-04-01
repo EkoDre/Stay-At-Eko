@@ -1,8 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcrypt');
+import express from 'express';
+import bcrypt from 'bcrypt';
+import User from '../models/user.js';
 
-const User = require('../models/user.js');
+const router = express.Router();
+
 
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
@@ -77,4 +78,4 @@ router.post('/sign-in', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

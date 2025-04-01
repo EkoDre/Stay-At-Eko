@@ -1,13 +1,16 @@
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const methodOverride = require('method-override');
-const morgan = require('morgan');
-const session = require('express-session');
 
-const authController = require('./controllers/auth.js');
+import express from 'express';
+const app = express();
+
+import mongoose from 'mongoose';
+import methodOverride from 'method-override';
+import morgan from 'morgan';
+import session from 'express-session';
+
+import authController from './controllers/auth.js';
+import listingsController from './controllers/listings.js';
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -16,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
-
+app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
@@ -43,7 +46,7 @@ app.get('/vip-lounge', (req, res) => {
 });
 
 app.use('/auth', authController);
-
+app.use('/listings', listingsController);
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });
