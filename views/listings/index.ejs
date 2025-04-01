@@ -20,14 +20,10 @@
   <ul>
     <% listings.forEach(listing => { %>
       <li>
-        <a href="/listing/<%= listing._id %>">
+        <a href="/listings/<%= listing._id %>">
           <%= listing.city %> <%= listing.price %> (<%= listing.description %>)
         </a>
         
-        <a href="/listing/<%= listing._id %>/edit">Edit</a>
-        <form action="/listing/<%= listing._id %>?_method=DELETE" method="POST" style="display:inline;">
-          <button type="submit">Delete</button>
-        </form>
       </li>
     <% }) %>
   </ul>
