@@ -8,11 +8,18 @@ import mongoose from 'mongoose';
 import methodOverride from 'method-override';
 import morgan from 'morgan';
 import session from 'express-session';
-
+import path from 'path';
 import authController from './controllers/auth.js';
 import listingsController from './controllers/listings.js';
-
+import homeController from './controllers/home.js';
+import bookingsController from './controllers/bookings.js'
 const port = process.env.PORT ? process.env.PORT : '3000';
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -31,20 +38,9 @@ app.use(
   })
 );
 
-app.get('/', (req, res) => {
-  res.render('index.ejs', {
-    user: req.session.user,
-  });
-});
-
-app.get('/vip-lounge', (req, res) => {
-  if (req.session.user) {
-    res.send(`Welcome to the party ${req.session.user.username}.`);
-  } else {
-    res.send('Sorry, no guests allowed.');
-  }
-});
-
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/bookings', bookingsController);
+app.use('', homeController);
 app.use('/auth', authController);
 app.use('/listings', listingsController);
 app.listen(port, () => {

@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
-    const listings = await Listing.find({});
+    const listings = await Listing.find({owner: req.session.user._id});
     res.render('listings/index',{listings,user:req.session.user});
   }); 
 
@@ -21,7 +21,7 @@ router.get("/new", (req, res) => {
     const listing = await Listing.create({ city, price, description, owner: req.session.user._id });
   
     // Redirect to the listings index page
-    res.redirect("/listings/mine");
+    res.redirect("/listings");
   });
   
     // rout for editing listing
@@ -39,7 +39,7 @@ router.get("/new", (req, res) => {
     await Listing.findByIdAndUpdate(id, { city, price, description });
     res.redirect(`/listings/${id}`);
   });
-  
+
 // Show a single listing page
 router.get('/:id', async (req, res) => {
   try {
@@ -54,16 +54,12 @@ router.get('/:id', async (req, res) => {
       listing,
       user: req.session.user // this lets you show Edit/Delete buttons if user owns it
     });
+  } catch (err) {
+    console.error(err);
+    res.redirect('/listings');
+  }
+});
 
-    router.get("/mine", async (req, res) => {
-      if (!req.session.user) {
-        return res.redirect("/auth/sign-in");
-      }
-    
-      const listings = await Listing.find({ owner: req.session.user._id });
-    
-      res.render("listings/mine", { listings, user: req.session.user });
-    });
 
 // Delete a listing by ID
 router.delete('/:id', async (req, res) => {
@@ -78,18 +74,5 @@ router.delete('/:id', async (req, res) => {
 
 
 
-
-
-  } catch (err) {
-    // Log any errors and redirect back to listings
-    console.error(err);
-    res.redirect('/listings');
-  }
-});
-
-
-
-
-
-
-  export default router;
+export default router;
+  

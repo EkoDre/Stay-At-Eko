@@ -1,14 +1,14 @@
 import mongoose from "mongoose"; // imported from mongoose
 
 const listingSchema = new mongoose.Schema({
-  city: { type: String, required: true },         // e.g. Tokyo
-  price: { type: Number, required: true },        // e.g. 150
+  city: { type: String, required: true },         
+  price: { type: Number, required: true },        
   description: { type: String, required: true },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  }  // e.g. Cozy room in central Tokyo
+  }   
 });
 
 const Listing = mongoose.model('Listing', listingSchema);

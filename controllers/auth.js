@@ -71,7 +71,7 @@ router.post('/sign-in', async (req, res) => {
       _id: userInDatabase._id
     };
   
-    res.redirect('/listings/mine');
+    res.redirect('/listings');
   } catch (error) {
     console.log(error);
     res.redirect('/');
