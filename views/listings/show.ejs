@@ -68,7 +68,7 @@
     </script>
 
     <h2>How long would you like to stay ?</h2>
-
+    
     <form action="/bookings" method="POST">
       <input type="hidden" name="listingId" value="<%= listing._id %>" />
 
@@ -82,6 +82,7 @@
 
       <button type="submit">Book Now</button>
     </form>
+   
 
     <script>
         const pricePerNight =  <%= listing.price %> ;

@@ -1,0 +1,73 @@
+/* Layout container for all cards */
+.listing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px;
+    justify-content: center;
+    
+  }
+  
+  /* Individual listing card */
+  .listing-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    width: 300px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Hover effect */
+  .listing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* City & price */
+  .listing-card h3 {
+    font-size: 1.4rem;
+    margin: 0 0 12px;
+    color: #1a2b50;
+  }
+  
+  /* Description */
+  .listing-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+  
+  /* Button */
+  .view-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #246fb0;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-btn:hover {
+    background-color: #1a5289;
+  }
+  
+  /* Optional: Add a soft border glow */
+  .listing-card:hover::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #8ac6d0, #3e8ed0);
+    opacity: 0.2;
+    z-index: -1;
+  }
+  

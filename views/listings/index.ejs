@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/listings.css" />
 </head>
 <body>
   <% if (user) { %>
@@ -18,16 +19,16 @@
   <% } %>
   <a href="/listings/new">Add New Listing</a>
 
-  <ul>
+  <div class="listing-grid">
     <% listings.forEach(listing => { %>
-      <li>
-        <a href="/listings/<%= listing._id %>">
-          <%= listing.city %> <%= listing.price %> (<%= listing.description %>)
-        </a>
-        
-      </li>
+      <div class="listing-card">
+        <h3><%= listing.city %> - $<%= listing.price %></h3>
+        <p><%= listing.description %></p>
+        <a class="view-btn" href="/listings/<%= listing._id %>">View Details</a>
+      </div>
     <% }) %>
-  </ul>
+  </div>
+  
 
 </body>
 </html>

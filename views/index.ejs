@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Stay-At-Eko Home</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-  <% if (user) { %>
-    <h1>Welcome to the app, <%= user.username %>!</h1>
-    <p>
-      <a href="/listings">Listings</a>
-      <a href="/auth/sign-out">Sign out</a>
-    </p>
-  <% } else { %>
-    <h1>Welcome to Stay-At-Eko ! How may we help you?</h1>
-    <p>
-      <a href="/auth/sign-up">Sign up</a> or
-      <a href="/auth/sign-in">Sign in</a>.
-    </p>
-    <ul>
-      <% listings.forEach(listing => { %>
-        <li>
-          <a href="/auth/sign-in">
-            <%= listing.city %> <%= listing.price %> (<%= listing.description %>)
-          </a>
-        </li>
-      <% }) %>
-    </ul>
-  <% } %>
- 
+  <!-- Full-page background & overlay are set in CSS -->
+  <div class="overlay"></div>
+
+  <!-- Main container for the page -->
+  <div class="container">
+    <% if (user) { %>
+      <h1>Welcome to the app, <%= user.username %>!</h1>
+      <p>
+        <a href="/listings">View Listings</a>
+        <a href="/auth/sign-out">Sign out</a>
+      </p>
+    <% } else { %>
+      <h1>Welcome to Stay-At-Eko! How may we help you?</h1>
+      <p>
+        <a href="/auth/sign-up">Sign up</a> or
+        <a href="/auth/sign-in">Sign in</a>
+      </p>
+    <% } %>
+
+<!-- 3 listing preview!-->
+
+    <section class="catalog-section">
+      <h2>Featured Listings</h2>
+      <div class="catalog-container">
+        <% listings.slice(0, 3).forEach(listing => { %>
+          <div class="catalog-item">
+            <h3><%= listing.city %></h3>
+            <p>Price: $<%= listing.price %></p> 
+            <p><%= listing.description %></p>
+            <a class="catalog-link" href="/auth/sign-in">View Details</a>
+            <img class="hover-img" 
+                 src="<%= 
+                      listing.city === 'Barcelona' ? 'https://raw.githubusercontent.com/EkoDre/Stay-At-Eko/main/Assets/barcelona%20preview%20catalog%20image.png' :
+                      listing.city === 'Paris' ? 'https://raw.githubusercontent.com/EkoDre/Stay-At-Eko/main/Assets/paris%20preview%20image.png' :
+                      listing.city === 'Tokyo' ? 'https://raw.githubusercontent.com/EkoDre/Stay-At-Eko/c5ba8adee222d5d2f644c6b913523cf871c4343e/Assets/Tokyo%20preview%20image.png' :
+                      'https://raw.githubusercontent.com/EkoDre/Stay-At-Eko/main/Assets/default.jpg'
+                 %>" 
+                 alt="Preview of <%= listing.city %>" />
+          </div>
+    
+        <% }) %>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
 
