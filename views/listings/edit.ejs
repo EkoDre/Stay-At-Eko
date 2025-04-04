@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Listing</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Listing</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/edit.css" />
 </head>
 <body>
-    <h1>Edit Stay-at-Eko Listing</h1>
+  <div class="form-wrapper">
+    <h1 class="form-title">Edit Stay-at-Eko Listing</h1>
 
-    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" class="listing-form">
       <label>City:</label>
       <input type="text" name="city" value="<%= listing.city %>" required />
 
       <label>Price per Night ($):</label>
       <input type="number" name="price" value="<%= listing.price %>" required />
 
-      <label>Description:</label><br />
-      <textarea name="description" rows="4" cols="50" required><%= listing.description %></textarea>
+      <label>Description:</label>
+      <textarea name="description" rows="4" required><%= listing.description %></textarea>
 
-      <br />
-      <button type="submit">Update Listing</button>
+      <button type="submit" class="submit-btn">Update Listing</button>
     </form>
 
-    <a href="/listings">← Back to Listings</a>
+    <a class="back-link" href="/listings">← Back to Listings</a>
+  </div>
 </body>
 </html>

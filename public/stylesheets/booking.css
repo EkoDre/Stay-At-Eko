@@ -1,0 +1,43 @@
+body {
+    background: linear-gradient(to right, #dbeafe, #e0f7fa); /* soft beachy tones */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .booking-confirmed {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+  }
+  
+  .booking-confirmed h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .booking-confirmed p a {
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #246fb0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .booking-confirmed p a:hover {
+    background-color: #1a5289;
+  }
+  

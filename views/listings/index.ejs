@@ -9,15 +9,18 @@
 </head>
 <body>
   <% if (user) { %>
-    <h1>Homes near you, <%= user.username %>!</h1>
-    <p>
-      <a href="/auth/sign-out">Sign out</a>
-    </p>
+    <h1 class="page-heading">Homes near you, <%= user.username %>!</h1>
+    <div class="action-buttons">
+      <a href="/listings/new" class="btn add-btn">+ Add New Listing</a>
+      <a href="/auth/sign-out" class="btn signout-btn">Sign Out</a>
+    </div>
   <% } else { %>
-    <h1>Welcome to the app, guest.</h1>
-  
+    <h1 class="page-heading">Welcome to the app, guest.</h1>
+    <div class="action-buttons">
+      <a href="/auth/sign-in" class="btn signout-btn">Sign In</a>
+    </div>
   <% } %>
-  <a href="/listings/new">Add New Listing</a>
+
 
   <div class="listing-grid">
     <% listings.forEach(listing => { %>

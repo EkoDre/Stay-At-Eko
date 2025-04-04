@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Booking Confirmed</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-<body>
-  <% if (user) { %>
-    <h1>Congrats <%= user.username %>! Booking Confirmed </h1>
-    <p>
-      <a href="/listings">Listings</a>
-      <a href="/auth/sign-out">Sign out</a>
-    </p>
-  <%  } %>
-   
- 
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Confirmed</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/booking.css" />
+  </head>
+  <body>
+    <div class="booking-confirmed">
+      <% if (user) { %>
+      <h1>Congrats <%= user.username %>! Booking Confirmed 🎉</h1>
+      <p>
+        <a href="/listings">Back to Listings</a>
+        <a href="/auth/sign-out">Sign out</a>
+      </p>
+      <% } %>
+    </div>
+  </body>
 </html>
-

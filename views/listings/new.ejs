@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Listing</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+    <link rel="stylesheet" href="/stylesheets/form.css" />
 
+  </head>
   <body>
-    <h1>Add a New Stay-at-Eko Listing</h1>
-    <form action="/listings" method="POST">
-      
+  <div class="form-wrapper">
+    <h1 class="form-title">Add a New Stay-at-Eko Listing</h1>
+    
+    <form class="listing-form" action="/listings" method="POST">
       <label for="city">City:</label>
       <input
         type="text"
         name="city"
         placeholder="City (e.g. Tokyo)"
         required
-      /><br />
+      />
 
       <label for="price">Price per Night ($):</label>
       <input
@@ -25,18 +27,17 @@
         name="price"
         placeholder="Price (e.g. 100)"
         required
-      /><br />
+      />
 
-      <label for="description">Description:</label><br />
+      <label for="description">Description:</label>
       <textarea
         name="description"
         placeholder="Tell us about this listing..."
         rows="4"
-        cols="50"
         required
-      ></textarea><br />
+      ></textarea>
 
-      <button type="submit">Add Listing</button>
+      <button type="submit" class="submit-btn">Add Listing</button>
     </form>
-  </body>
-</html>
+  </div>
+</body>

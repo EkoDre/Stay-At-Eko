@@ -3,58 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>City</title>
+    <title><%= listing.city %> | Stay-At-Eko</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/show.css" /> <!-- Optional separate CSS -->
   </head>
+
   <body>
-    <h1><%= listing.city %></h1>
+    <div class="show-wrapper">
+      <h1 class="show-title"><%= listing.city %></h1>
 
-    <!-- Listing Details -->
-    <p><strong>Price:</strong> $<%= listing.price %></p>
-    <p><strong>Description:</strong> <%= listing.description %></p>
+      <div class="listing-info">
+        <p class="price"><strong>Price:</strong> $<%= listing.price %></p>
+        <p class="description"><strong>Description:</strong> <%= listing.description %></p
+      </div>
 
-    <!-- Back to listings link -->
-    <a href="/listings">← Back to all bookings</a>
+      <% if (user && user._id === listing.owner?.toString()) { %>
+        <div class="owner-actions">
+          <a href="/listings/<%= listing._id %>/edit" class="btn edit-btn">Edit</a>
+          <button id="showConfirmBox" class="btn delete-btn">Delete</button>
+        </div>
+      <% } %>
 
-    <!-- Edit/Delete buttons only if the user owns the listing -->
-    <% if (user && user._id === listing.owner?.toString()) { %>
-    <a href="/listings/<%= listing._id %>/edit">Edit</a>
+      <a href="/listings" class="btn back-btn">← Back to all listings</a>
 
-    <% } %>
+      <!-- Confirm Delete -->
+      <div id="confirmBox" class="confirm-box">
+        <p>Are you sure you want to delete this listing?</p>
+        <button onclick="submitDelete()" class="btn danger">Yes, delete</button>
+        <button onclick="hideConfirmBox()" class="btn">Cancel</button>
+      </div>
 
-    <!-- Delete Button -->
-    <button id="showConfirmBox">Delete</button>
+      <!-- Hidden Delete Form -->
+      <form
+        id="delete-form"
+        action="/listings/<%= listing._id %>?_method=DELETE"
+        method="POST"
+        style="display: none"
+      ></form>
 
-    <!-- Hidden Form -->
-    <form
-      id="delete-form"
-      action="/listings/<%= listing._id %>?_method=DELETE"
-      method="POST"
-      style="display: none"
-    ></form>
+      <h2 class="form-header">How long would you like to stay?</h2>
 
-    <!-- Simple Confirm Box -->
-    <div
-      id="confirmBox"
-      style="
-        display: none;
-        border: 1px solid #ca0707;
-        padding: 20px;
-        margin-top: 15px;
-        width: 300px;
-      "
-    >
-      <p>Are you sure you want to delete this listing?</p>
-      <button onclick="submitDelete()">Yes, delete</button>
-      <button onclick="hideConfirmBox()">Cancel</button>
+      <!-- Booking Form -->
+      <form action="/bookings" method="POST" class="booking-form">
+        <input type="hidden" name="listingId" value="<%= listing._id %>" />
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required />
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required />
+
+        <p class="total-price">Total Price: $<span id="totalPrice">0</span></p>
+
+        <button type="submit" class="btn primary">Book Now</button>
+      </form>
     </div>
 
+    <!-- JavaScript -->
     <script>
       const showConfirm = document.getElementById("showConfirmBox");
       const confirmBox = document.getElementById("confirmBox");
       const deleteForm = document.getElementById("delete-form");
 
-      showConfirm.addEventListener("click", () => {
+      showConfirm?.addEventListener("click", () => {
         confirmBox.style.display = "block";
       });
 
@@ -65,47 +76,26 @@
       function submitDelete() {
         deleteForm.submit();
       }
-    </script>
 
-    <h2>How long would you like to stay ?</h2>
-    
-    <form action="/bookings" method="POST">
-      <input type="hidden" name="listingId" value="<%= listing._id %>" />
+      const pricePerNight = <%= listing.price %>;
+      const startInput = document.getElementById('startDate');
+      const endInput = document.getElementById('endDate');
+      const totalPriceSpan = document.getElementById('totalPrice');
 
-      <label for="startDate">Start Date:</label>
-      <input type="date" id="startDate" name="startDate" required />
+      function calculateTotal() {
+        const start = new Date(startInput.value);
+        const end = new Date(endInput.value);
 
-      <label for="endDate">End Date:</label>
-      <input type="date" id="endDate" name="endDate" required />
-
-      <p>Total Price: $<span id="totalPrice">0</span></p>
-
-      <button type="submit">Book Now</button>
-    </form>
-   
-
-    <script>
-        const pricePerNight =  <%= listing.price %> ;
-      console.log(pricePerNight);
-
-        const startInput = document.getElementById('startDate');
-        const endInput = document.getElementById('endDate');
-        const totalPriceSpan = document.getElementById('totalPrice');
-
-        function calculateTotal() {
-          const start = new Date(startInput.value);
-          const end = new Date(endInput.value);
-
-          if (!isNaN(start) && !isNaN(end) && end > start) {
-            const diffDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
-            totalPriceSpan.textContent = diffDays * pricePerNight;
-          } else {
-            totalPriceSpan.textContent = 0;
-          }
+        if (!isNaN(start) && !isNaN(end) && end > start) {
+          const diffDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+          totalPriceSpan.textContent = diffDays * pricePerNight;
+        } else {
+          totalPriceSpan.textContent = 0;
         }
+      }
 
-        startInput.addEventListener('change', calculateTotal);
-        endInput.addEventListener('change', calculateTotal);
+      startInput.addEventListener('change', calculateTotal);
+      endInput.addEventListener('change', calculateTotal);
     </script>
   </body>
 </html>
