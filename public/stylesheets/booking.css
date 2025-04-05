@@ -1,43 +1,56 @@
+/* booking.css */
+
+/* General body styling with background image */
 body {
-    background: linear-gradient(to right, #dbeafe, #e0f7fa); /* soft beachy tones */
-    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background: url('https://raw.githubusercontent.com/EkoDre/Stay-At-Eko/main/Assets/confirmation%20page%20.png') no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: cover; /*  Smaller image */
+    background-attachment: fixed;
   }
   
+  /* Container for the booking confirmation card */
   .booking-confirmed {
-    background-color: #ffffff;
+    max-width: 600px;
+    margin: 250px auto;
+    background-color: rgba(255, 255, 255, 0.85); /* white with slight transparency */
     padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 500px;
   }
   
+  /* Styling for the main heading */
   .booking-confirmed h1 {
-    font-size: 1.8rem;
-    color: #2c3e50;
+    font-size: 2em;
+    color: #333333;
     margin-bottom: 20px;
   }
   
-  .booking-confirmed p a {
+  /* Styling for the paragraph containing the navigation links */
+  .booking-confirmed p {
+    margin-top: 20px;
+  }
+  
+  /* Styling for the links */
+  .booking-confirmed a {
     display: inline-block;
-    margin: 10px;
-    text-decoration: none;
-    color: white;
-    background-color: #246fb0;
+    margin: 0 10px;
     padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
+    text-decoration: none;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #007bff;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
   }
   
-  .booking-confirmed p a:hover {
-    background-color: #1a5289;
+  /* Hover effect for the links */
+  .booking-confirmed a:hover {
+    background-color: #0056b3;
   }
   

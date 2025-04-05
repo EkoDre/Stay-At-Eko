@@ -1,0 +1,86 @@
+/* Reset & Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body: full-screen background (optional) */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: url('https://raw.githubusercontent.com/EkoDre/Stay-At-Eko/main/Assets/Stay%20at%20Eko%20front%20page.png')
+                no-repeat center center / cover;
+    min-height: 100vh;
+    display: flex; /* center .signin-container horizontally & vertically */
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+  }
+  
+  /* Optional overlay to darken the background */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+  }
+  
+  /* The semi-transparent sign-in box */
+  .signin-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px 20px;
+    border-radius: 8px;
+    width: 320px; /* fixed width for a neat box */
+    text-align: center;
+  }
+  
+  /* Sign-in heading */
+  .signin-container h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px #000;
+  }
+  
+  /* Each form-group is stacked vertically */
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left; /* label text aligned left */
+  }
+  
+  .form-group label {
+    display: block;   /* ensures label is on its own line */
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  /* Sign-in button */
+  button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background: #246fb0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #1d5a89;
+  }
+  
