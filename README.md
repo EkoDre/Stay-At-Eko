@@ -21,7 +21,8 @@ I wanted to build something useful that also helped me get better at backend dev
 
 ## 🚀 Getting Started
 
-- **Deployed App**: _[Insert your deployed app link here]_  
+- **Deployed App**: [Railway Link](https://stay-at-eko-production.up.railway.app)  
+
 - **Planning Materials**: [Trello Board](https://trello.com/b/esMMgosL/eko-project-planning)  
   - Wireframes and ERD are included on the Trello board
 
