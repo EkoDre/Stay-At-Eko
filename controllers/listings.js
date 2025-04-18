@@ -3,6 +3,7 @@ import Listing from '../models/listing.js';
 const router = express.Router();
 
 
+// All of these controllers should have a trycatch like the last one 
 router.get('/', async (req, res) => {
     const listings = await Listing.find({owner: req.session.user._id});
     res.render('listings/index',{listings,user:req.session.user});
